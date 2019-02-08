@@ -1,8 +1,12 @@
 # Summary
-Take a crop from each camera image and submit it to the Object Detection graph.
-Store any detection results and the images to which they relate.
-Maybe create boxed images.
-Maybe adjust the crop frame.
+
+The service performs the following sequence continually:
+
+* Take a camera image.
+* Take a crop from the image and submit it to the Object Detection graph.
+* Store any detection results and the images to which they relate.
+* Maybe create boxed images.
+* Maybe adjust the crop frame.
 
 Review this information: https://picamera.readthedocs.io/en/release-1.13/fov.html#sensor-modes
 
@@ -20,7 +24,7 @@ NB: CURRENT_IMAGE_STORE must be set to a location where the service can write fi
 
 Disable the service by setting SUSPENDED=1 in "service.properties"
 
-Start and stop the service manualy, by running the scripts:
+Start and stop the service manually, by running the scripts:
 
     start-service.sh
     stop-service.sh
