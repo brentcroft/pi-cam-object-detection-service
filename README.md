@@ -15,7 +15,7 @@ Unpack the kit into a directory on the pi.
 1. Run "01-build-tf-1.12-0-cp35.sh" to install Tensorflow.
 2. Run "02-build-tf-OD-cp35" to install Object Detection.
 
-NB: I usually do these line by line
+NB: I usually do these line by line, and I unpack directly into */home/pi*
 
 
 ## Configuration
