@@ -4,7 +4,7 @@ This kit is a workshop for installing TensorFlow & Object Detection on a Raspber
 
 The kit requires an appropriate Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
-The file "01-build-tf-1.12-0-cp35" has the following hard-coded, which may need to be amended:
+The file "01-build-tf-1.12-0-cp35.sh" has the following hard-coded, which may need to be amended:
 
     sudo pip3 install tensorflow-1.12.0-cp35-none-linux_armv7l.whl
     
@@ -12,8 +12,8 @@ The file "01-build-tf-1.12-0-cp35" has the following hard-coded, which may need 
 ## Installation
 Unpack the kit into a directory on the pi.
 
-Run "01-build-tf-1.12-0-cp35.sh" to install Tensorflow.
-Run "02-build-tf-OD-cp35" to install Object Detection.
+1. Run "01-build-tf-1.12-0-cp35.sh" to install Tensorflow.
+2. Run "02-build-tf-OD-cp35" to install Object Detection.
 
 NB: I usually do these line by line
 
