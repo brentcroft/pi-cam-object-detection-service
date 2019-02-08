@@ -37,6 +37,6 @@ The service detects when it is already running, but will regularly try to restar
 
 To start the service manualy, run the script:
 
-    *start-service.sh*
+    start-service.sh
     
 The service regularly that *SUSPENDED=0* in the file "service.properties", and if not the service stops.
