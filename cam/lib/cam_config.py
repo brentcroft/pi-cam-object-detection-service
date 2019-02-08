@@ -108,23 +108,6 @@ def read_config( log = False ):
     #   
     config['BOXED_IMAGES'] = props[ 'BOXED_IMAGES' ].lower() == 'true' if 'BOXED_IMAGES' in props else False
     config['LINE_THICKNESS'] = int( props[ 'LINE_THICKNESS' ] ) if 'LINE_THICKNESS' in props else 5
-    config['CLASS_COLORS'] = json.loads( props[ 'CLASS_COLORS' ] ) if 'CLASS_COLORS' in props else {
-            "frame":            "silver",
-            "blackbird":        "navy",
-            "blue tit":         "blue",
-            "collared dove":    "orange",
-            "dunnock":          "olivedrab",
-            "goldfinch":        "salmon",
-            "great tit":        "green",
-            "jackdaw":          "yellow",
-            "long tailed tit":  "grey",
-            "mouse":            "white",
-            "robin":            "maroon",
-            "sparrow":          "olive",
-            "starling":         "fuchsia",
-            "wood pigeon":      "red",
-            "wren":             "teal"
-        }
         
     if log:
         log_message( get_config_text( config ) )    

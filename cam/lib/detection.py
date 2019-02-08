@@ -19,6 +19,7 @@ from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
 
 from util import log_message
+from util import calculate_color
 """
 
     initialise a graph from files
@@ -285,22 +286,17 @@ def detect(
             
         # callback for detected objects
         on_detected_objects( seq, image_uri, raw_image, frame_image, meta_objects, stats )
-
 """
 
 
 """
-def draw_objects_on_image( image, objects, class_colors, line_thickness ):
+def draw_objects_on_image( image, objects, line_thickness ):
     # so higher scores draw last
     objects.sort( key = lambda x: x['score'])
     for object in objects:
         class_name = object['name']
         class_score = object['score']
-        if class_name in class_colors:
-            class_color = class_colors[ class_name ]
-        else:
-            print( "No class color for category: {}".format( class_name ) )
-            class_color = 'yellow'
+        class_color = calculate_color( class_name )
 
         # note unusual order of co-ords
         b2, b1, b4, b3 = object['box']

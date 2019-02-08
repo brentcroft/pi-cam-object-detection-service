@@ -78,14 +78,14 @@ def store_boxed_image( image=None, stored_paths=None, meta_data=None, config=Non
     if not config['BOXED_IMAGES']:
         return
 
-    frame_coords, colors, line = config['CURRENT_FRAME'], config['CLASS_COLORS'], config['LINE_THICKNESS']        
+    frame_coords, line = config['CURRENT_FRAME'], config['LINE_THICKNESS']        
         
     if meta_data is not None:
-        draw_objects_on_image( image, meta_data['objects'], colors, line )
+        draw_objects_on_image( image, meta_data['objects'], line )
     
     #draw frame if raw
     if config['STORAGE'] == 0:
-        draw_objects_on_image( image, [ { 'name': 'frame', 'score': 0, 'box': frame_coords } ], colors, line )
+        draw_objects_on_image( image, [ { 'name': 'frame', 'score': 0, 'box': frame_coords } ], line )
 
     # boxed image alongside detection file in daily directory
     if stored_paths is not None and 'calendar_detection_file' in stored_paths:
