@@ -3,6 +3,7 @@
 This kit is a workshop for installing TensorFlow & Object Detection on a Raspberry Pi with a Camera.
 
 The kit requires an appropriate Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
+Two graphs are provided as arbitrary working examples.
 
 The file "01-build-tf-1.12-0-cp35.sh" has the following hard-coded, which may need to be amended:
 
