@@ -9,3 +9,12 @@ Review the file "cam.properties" and make amendmednts as required.
 
 Disable the service by setting SUSPENDED=1 in "service.properties"
 
+Start and stop the service manualy, by running the scripts:
+
+    start-service.sh
+    stop-service.sh
+
+
+Review the python code in the directory *./lib*.
+
+
