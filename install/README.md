@@ -1,5 +1,4 @@
-# pi-cam-object-detector
-## Installation
+# Installation
 
 
 A sample SSD Mobilenet graph is provided as an arbitrary working example.
@@ -8,13 +7,13 @@ Other SSD Mobilenet graphs are available from:
     https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 
     
-### Unpack
+## Unpack
 Unpack the kit into a directory on the pi.<br>
 If this is not "/home/pi" then you will have to make changes to the configuration later.
 
 Make the two shell files executable: `chmod +x *.sh`
 
-### Install Tensorflow and dependencies
+## Install Tensorflow and dependencies
 The kit requires an appropriate Tensorflow wheel to be downloaded (~62M) alongside the shell files.<br>
 See: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
@@ -27,7 +26,7 @@ Run `./01-build-tf-1.12-0-cp35.sh'<br>
 This takes about 15 mins on a fast network.
 
 
-### Install Tensorflow Object Detection and Slim
+## Install Tensorflow Object Detection and Slim
 Run `./02-build-tf-OD-cp35.sh`<br>
 This takes about 30 mins on a fast network.
 
@@ -38,7 +37,7 @@ Once installed, the zip file and directory can be deleted.
 ![after install](home-directory.png)
 
 
-3. Configure a RAM drive on "/home/pi/cam-ram" 
+## Configure a RAM drive on "/home/pi/cam-ram" 
 
 When the property CURRENT_IMAGE_STORE exists and names a directory, 
 then the service will write the current image to a file in the directory,
@@ -52,7 +51,7 @@ Use `sudo nano /etc/fstab` and add the entry:
     tmpfs /home/pi/cam-ram  tmpfs defaults,noatime,size=5m 0 0
 
 
-4. Configure the service.
+## Configure the service.
 
 Use `sudo crontab -e` and add the entry:
 
@@ -67,7 +66,7 @@ Every time the HTTP file server starts, it copies every file from "./site" (i.e.
 
 
 
-5. Run the service.
+## Run the service.
 
 To start the service manually, run the script:
 
