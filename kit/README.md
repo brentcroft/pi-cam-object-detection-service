@@ -65,13 +65,13 @@ Use `sudo crontab -e` and add the entry:
     * * * * * /home/pi/cam/run-from-cron.sh
 
 The service detects when it is already running, but will regularly try to restart.
-The service regularly checks that **SUSPENDED=0** in the file "service.properties", and if not any running service is terminated.
+The service regularly checks that **SUSPENDED=0** in the file **./cam/service.properties**, and if not any running service is terminated.
 
-If **HTTP_SERVER=1** in the file "service.properties" then the service will also start/stop a minimal HTTP file server on *CURRENT_IMAGE_PORT*.
+If **HTTP_SERVER=1** in the file **./cam/service.properties** then the service will also start/stop a minimal HTTP file server on *CURRENT_IMAGE_PORT*.
 
 The file root is obtained from *CURRENT_IMAGE_STORE*.
 
-Every time the HTTP file server starts, it copies every file from **./site** (i.e. "index.html") into *CURRENT_IMAGE_STORE*.
+Every time the HTTP file server starts, it copies every file from **./cam/site** (i.e. "index.html") into *CURRENT_IMAGE_STORE*.
 
 
 
