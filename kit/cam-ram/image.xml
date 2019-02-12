@@ -1,0 +1,54 @@
+<annotation>
+  <folder>/home/pi/cam-ram</folder>
+  <filename>image.jpg</filename>
+  <object>
+    <name>blue tit</name>
+    <score>0.9603715</score>
+    <bndbox>
+      <xmin>594</xmin>
+      <ymin>74</ymin>
+      <xmax>686</xmax>
+      <ymax>131</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>blue tit</name>
+    <score>0.83015966</score>
+    <bndbox>
+      <xmin>337</xmin>
+      <ymin>75</ymin>
+      <xmax>387</xmax>
+      <ymax>148</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>sparrow</name>
+    <score>0.77659035</score>
+    <bndbox>
+      <xmin>491</xmin>
+      <ymin>71</ymin>
+      <xmax>575</xmax>
+      <ymax>129</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>dunnock</name>
+    <score>0.69076973</score>
+    <bndbox>
+      <xmin>453</xmin>
+      <ymin>170</ymin>
+      <xmax>555</xmax>
+      <ymax>227</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>mouse</name>
+    <score>0.40192878</score>
+    <bndbox>
+      <xmin>320</xmin>
+      <ymin>211</ymin>
+      <xmax>365</xmax>
+      <ymax>260</ymax>
+    </bndbox>
+  </object>
+</annotation>

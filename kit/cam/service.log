@@ -1,0 +1,67 @@
+
+2019-02-12 21:04:01 cam [RT_CAM_001]: starting ...
+[21-04-18_984] Pi_Cam_Object_Detector:
+  BOX_TRACKER: False
+  BOX_TRACKER_RATIOS: [5, 8]
+  CAMERA_RESOLUTION: [720, 405]
+  CAMERA_ROTATION: 0
+  CURRENT_IMAGE_RAW: True
+  CURRENT_IMAGE_STORE: /home/pi/cam-ram
+  DETECTION_APERTURE: [480, 270]
+  DETECTION_CLASS_MIN_SCORE: {'starling': 0.7}
+  DETECTION_FRAME: [120.0, 67.5, 600.0, 337.5]
+  DETECTION_MIN_SCORE: 0.99
+  GRAPH: eb_12_v08_480x270_01c_500k
+  GRAPH_FILENAME: frozen_inference_graph.pb
+  GRAPH_LABELS_FILENAME: object-detection.pbtxt
+  GRAPH_NUM_CLASSES: 12
+[21-04-18_985] Using Tensorflow: 1.12.0
+[21-04-42_124] Loaded graph=[./eb_12_v08_480x270_01c_500k/frozen_inference_graph.pb]
+[21-04-42_124] Loaded categories=[./eb_12_v08_480x270_01c_500k/object-detection.pbtxt]
+[21-04-42_229] StillCamera: starting ...
+[21-04-52_579] StillCamera: started.
+2019-02-12 21:05:01 cam [RT_CAM_001]: already running.: pids=4142
+[21-05-06_116] Detections: total=[  1], seq=  1; 13.42s [13.424 s/i, 0.074 i/s].
+[21-05-06_119] Loaded font: name=[DejaVuSansMono.ttf], size=[12]
+[21-05-06_169] Created color complement: [#ffffff / #000000]
+[21-05-06_172] Created color mapping: text=[sparrow        ], hash=[b6bc6539453d], color=[#647173], rgb=(100, 113, 115)
+[21-05-06_174] Created color complement: [#647173 / #9b8e8c]
+[21-05-06_177] Created color mapping: text=[blue tit       ], hash=[ee44fca2335b], color=[#605425], rgb=(96, 84, 37)
+[21-05-06_180] Created color complement: [#605425 / #9fabda]
+[21-05-06_182] Created color mapping: text=[blackbird      ], hash=[827c749c685b], color=[#2c5c69], rgb=(44, 92, 105)
+[21-05-06_184] Created color complement: [#2c5c69 / #d3a396]
+[21-05-06_188] Created color mapping: text=[starling       ], hash=[3c4c82b11cd3], color=[#4c6177], rgb=(76, 97, 119)
+[21-05-06_190] Created color complement: [#4c6177 / #b39e88]
+[21-05-06_202] Created color mapping: text=[robin          ], hash=[8ee60a2e00c9], color=[#487433], rgb=(72, 116, 51)
+[21-05-06_204] Created color complement: [#487433 / #b78bcc]
+[21-05-08_596] Detections: total=[  1], seq=  1; 2.35s [2.35 s/i, 0.426 i/s].
+[21-05-08_647] Created color mapping: text=[mouse          ], hash=[40203abe6e81], color=[#42263b], rgb=(66, 38, 59)
+[21-05-08_649] Created color complement: [#42263b / #bdd9c4]
+[21-05-11_037] Detections: total=[  1], seq=  1; 2.33s [2.329 s/i, 0.429 i/s].
+[21-05-13_484] Detections: total=[  1], seq=  1; 2.34s [2.34 s/i, 0.427 i/s].
+[21-05-15_933] Detections: total=[  1], seq=  1; 2.34s [2.34 s/i, 0.427 i/s].
+[21-05-18_372] Detections: total=[  1], seq=  1; 2.33s [2.334 s/i, 0.428 i/s].
+[21-05-18_439] Created color mapping: text=[dunnock        ], hash=[a6948c8eeb38], color=[#686624], rgb=(104, 102, 36)
+[21-05-18_441] Created color complement: [#686624 / #9799db]
+[21-05-20_824] Detections: total=[  1], seq=  1; 2.33s [2.33 s/i, 0.429 i/s].
+[21-05-23_268] Detections: total=[  1], seq=  1; 2.34s [2.336 s/i, 0.428 i/s].
+[21-05-25_679] Detections: total=[  1], seq=  1; 2.31s [2.305 s/i, 0.434 i/s].
+[21-05-28_111] Detections: total=[  1], seq=  1; 2.32s [2.324 s/i, 0.43 i/s].
+[21-05-30_573] Detections: total=[  1], seq=  1; 2.35s [2.345 s/i, 0.426 i/s].
+[21-05-33_016] Detections: total=[  1], seq=  1; 2.34s [2.344 s/i, 0.427 i/s].
+[21-05-35_437] Detections: total=[  1], seq=  1; 2.31s [2.313 s/i, 0.432 i/s].
+[21-05-37_905] Detections: total=[  1], seq=  1; 2.36s [2.356 s/i, 0.424 i/s].
+[21-05-40_326] Detections: total=[  1], seq=  1; 2.31s [2.313 s/i, 0.432 i/s].
+[21-05-42_782] Detections: total=[  1], seq=  1; 2.35s [2.348 s/i, 0.426 i/s].
+[21-05-45_211] Detections: total=[  1], seq=  1; 2.32s [2.317 s/i, 0.432 i/s].
+[21-05-47_634] Detections: total=[  1], seq=  1; 2.31s [2.307 s/i, 0.434 i/s].
+[21-05-50_098] Detections: total=[  1], seq=  1; 2.36s [2.356 s/i, 0.424 i/s].
+[21-05-52_549] Detections: total=[  1], seq=  1; 2.34s [2.335 s/i, 0.428 i/s].
+[21-05-54_978] Detections: total=[  1], seq=  1; 2.32s [2.324 s/i, 0.43 i/s].
+[21-05-57_404] Detections: total=[  1], seq=  1; 2.31s [2.314 s/i, 0.432 i/s].
+[21-05-59_833] Detections: total=[  1], seq=  1; 2.32s [2.32 s/i, 0.431 i/s].
+2019-02-12 21:06:01 cam [RT_CAM_001]: already running.: pids=4142
+[21-06-02_447] Detections: total=[  1], seq=  1; 2.51s [2.507 s/i, 0.399 i/s].
+[21-06-04_933] Detections: total=[  1], seq=  1; 2.36s [2.365 s/i, 0.423 i/s].
+[21-06-07_370] Detections: total=[  1], seq=  1; 2.33s [2.326 s/i, 0.43 i/s].
+[21-06-09_804] Detections: total=[  1], seq=  1; 2.27s [2.274 s/i, 0.44 i/s].
