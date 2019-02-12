@@ -22,16 +22,14 @@ To construct the animation, the following settings were used (see: **./cam/cam.p
     
 Towards the end of the animation, minimum score thresholds for some of the classes were increased to 0.999.
 
-The boxed images were colleced from **/demo** and then compressed into an animation (using https://ezgif.com/optimize).
+The boxed images were collected from **/demo** and then compressed into an animation (using https://ezgif.com/optimize).
 
 
-**Please Note**
+## Please Note
 The kit requires the download of an appropriate Pi Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
 One sample SSD Mobilenet PPN graph is provided as an arbitrary working example.
 
-Other SSD MobileNet graphs are available from:
-
-    https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
+Other SSD MobileNet graphs are available from: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 
 See the readme files in "./install" and "./kit" for further information.
