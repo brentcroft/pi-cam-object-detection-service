@@ -2,8 +2,8 @@
 
 This kit provides Object Detection on a Pi with a Camera.
 
-![demo](eb_12_v08_480x270_01c_500k-20)
-
+![demo](eb_12_v08_480x270_01c_500k-20.gif)
+(made using https://ezgif.com/optimize)
 
 The kit requires an appropriate Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
