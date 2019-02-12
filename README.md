@@ -1,14 +1,15 @@
-# pi-cam-object-detector
+# pi-cam-object-detection-service
 
-This kit provides Object Detection on a Pi with a Camera.
+This kit provides the Pi Cam Object Detection Service.
 
+The images for the following video (made using https://ezgif.com/optimize) demonstrate the key features:
 ![demo](eb_12_v08_480x270_01c_500k-20.gif)
-(made using https://ezgif.com/optimize)
 
-The kit requires an appropriate Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
+Please note that the kit requires the download of an appropriate Pi Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
-A sample SSD Mobilenet graph is provided as an arbitrary working example.
-Other SSD Mobilenet graphs are available from:
+A sample SSD Mobilenet PPN graph is provided as an arbitrary working example.
+
+Other SSD MobileNet graphs are available from:
 
     https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 
