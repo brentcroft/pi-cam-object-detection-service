@@ -1,11 +1,5 @@
 # Installation
 
-
-A sample SSD Mobilenet graph is provided as an arbitrary working example.
-Other SSD Mobilenet graphs are available from:
-
-    https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
-
     
 ## Unpack
 Unpack the kit into a directory on the pi.<br>
