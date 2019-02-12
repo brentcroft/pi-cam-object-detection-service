@@ -1,4 +1,6 @@
-The default value for *CURRENT_IMAGE_STORE* is **./cam-ram**.
+# CURRENT_IMAGE_STORE
+
+In the file **./cam/cam.properties**, the default value for *CURRENT_IMAGE_STORE* is **./cam-ram**.
 
 The current image, maybe a detection file, and a boxed image will be continually rewritten into *CURRENT_IMAGE_STORE* 
 so *CURRENT_IMAGE_STORE* is expected to be mounted as a RAM drive.
