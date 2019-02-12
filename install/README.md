@@ -8,44 +8,56 @@ If this is not **/home/pi** then you will have to make changes to the configurat
 Make the two shell files executable: `chmod +x *.sh`
 
 ## Install Tensorflow and dependencies
+
+Run `./01-build-tf-1.12-0-cp35.sh`
+
+This takes about 15 mins on a fast network.
+
 The kit requires an appropriate Tensorflow wheel to be **already** downloaded (~62M) alongside the shell files.<br>
 See: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
-If you do not choose **tensorflow-1.12.0-cp35-none-linux_armv7l.whl** then you must correspondingly amend 
-the file **01-build-tf-1.12-0-cp35.sh** which has the following line hard-coded:
+If you do not choose **tensorflow-1.12.0-cp35-none-linux_armv7l.whl** then you must 
+amend correspondingly the file **01-build-tf-1.12-0-cp35.sh**, which has the following line hard-coded:
 
     sudo pip3 install tensorflow-1.12.0-cp35-none-linux_armv7l.whl
 
-Run `./01-build-tf-1.12-0-cp35.sh`<br>
-This takes about 15 mins on a fast network.
-
 
 ## Install Tensorflow Object Detection and Slim
+
 Run `./02-build-tf-OD-cp35.sh`<br>
+
 This takes about 30 mins on a fast network.
 
-This script downloads  the full object detection master zip (~500M), and then unpacks it to a directory named "./tfod_install".
-It then runs the build and setup to install "object_detection", and then "slim".
+This script downloads the full object detection archive (**models.zip** ~500M), and then unzips it to a directory named **./tfod_install**.
+It then runs the build and setup python scripts to install **object_detection**, and then **slim**.
 Once installed, the zip file and directory can be deleted.
 
 ![after install](home-directory.png)
 
 
-## Configure a RAM drive on "/home/pi/cam-ram" 
+## Service Configuration
 
-When the property CURRENT_IMAGE_STORE exists and names a directory, 
+The service is configured by two properties files: **./cam/service.properties** & **./cam/cam.properties**.
+References in italic capitals (e.g. *CURRENT_IMAGE_STORE*) refer to entries in file **./cam/cam.properties**.
+
+See the comments in each file for specific details.
+
+
+### Assign RAM drive on "/home/pi/cam-ram" 
+
+When *CURRENT_IMAGE_STORE* exists and names a directory, 
 then the service will write the current image to a file in the directory,
 and a detection file if there are detections,
-and a boxed image if the property BOXED_IMAGES is True.
+and a boxed image if *BOXED_IMAGES* is True.
 
-Since these files are continually overwritten, if the CURRENT_IMAGE_STORE is on the pi then it should be a RAM drive.
+Since these files are continually overwritten, if *CURRENT_IMAGE_STORE* is on the pi then it should be a RAM drive.
 
 Use `sudo nano /etc/fstab` and add the entry:
 
     tmpfs /home/pi/cam-ram  tmpfs defaults,noatime,size=5m 0 0
 
 
-## Configure the service.
+### Set Cron Job for Resilience 
 
 Use `sudo crontab -e` and add the entry:
 
@@ -60,12 +72,3 @@ Every time the HTTP file server starts, it copies every file from "./site" (i.e.
 
 
 
-## Run the service.
-
-To start the service manually, run the script:
-
-    start-service.sh
-
-To stop the service manually, run the script:
-
-    stop-service.sh
