@@ -1,7 +1,7 @@
 # pi-cam-object-detection-service
 
 This kit provides the Pi Cam Object Detection Service. 
-The service is designed to run 24x7 on a Pi with a camera, and to produce output suitable for ground truth harvesting.
+The service is designed to run 24x7 on a Pi with a camera, to survive restarts, and to produce output suitable for ground truth harvesting.
 
 The following animation demonstrates the key features:
 
