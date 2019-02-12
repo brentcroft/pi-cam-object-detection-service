@@ -32,4 +32,4 @@ One sample SSD Mobilenet PPN graph is provided as an arbitrary working example.
 
 Other SSD MobileNet graphs are available from: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 
-See the readme files in "./install" and "./kit" for further information.
+See the readme file in "./kit" for further information.
