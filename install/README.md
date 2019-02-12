@@ -38,12 +38,13 @@ Once installed, the zip file and directory can be deleted.
 ## Service Configuration
 
 The service is configured by two properties files: **./cam/service.properties** & **./cam/cam.properties**.
-References in italic capitals (e.g. *CURRENT_IMAGE_STORE*) refer to entries in file **./cam/cam.properties**.
 
 See the comments in each file for specific details.
 
+In the following text, names in italic capitals (e.g. *CURRENT_IMAGE_STORE*) refer to keys in the file **./cam/cam.properties**.
 
-### Assign RAM drive on "/home/pi/cam-ram" 
+
+### Assign RAM drive on *CURRENT_IMAGE_STORE*
 
 When *CURRENT_IMAGE_STORE* exists and names a directory, 
 then the service will write the current image to a file in the directory,
