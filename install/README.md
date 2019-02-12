@@ -3,7 +3,7 @@
     
 ## Unpack
 Unpack the kit into a directory on the pi.<br>
-If this is not */home/pi* then you will have to make changes to the configuration later.
+If this is not **/home/pi** then you will have to make changes to the configuration later.
 
 Make the two shell files executable: `chmod +x *.sh`
 
@@ -11,12 +11,12 @@ Make the two shell files executable: `chmod +x *.sh`
 The kit requires an appropriate Tensorflow wheel to be downloaded (~62M) alongside the shell files.<br>
 See: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
-If you do not choose *tensorflow-1.12.0-cp35-none-linux_armv7l.whl* then you must correspondingly amend 
-the file *01-build-tf-1.12-0-cp35.sh* which has the following line hard-coded:
+If you do not choose **tensorflow-1.12.0-cp35-none-linux_armv7l.whl** then you must correspondingly amend 
+the file **01-build-tf-1.12-0-cp35.sh** which has the following line hard-coded:
 
     sudo pip3 install tensorflow-1.12.0-cp35-none-linux_armv7l.whl
 
-Run `./01-build-tf-1.12-0-cp35.sh'<br>
+Run `./01-build-tf-1.12-0-cp35.sh`<br>
 This takes about 15 mins on a fast network.
 
 
