@@ -2,13 +2,13 @@
 
     
 ## Unpack
-Unpack the kit into a directory on the pi.<br>
+Unpack the kit, and open a console, into a directory on the pi. 
 If this is not **/home/pi** then you will have to make changes to the configuration later.
 
 Make the two shell files executable: `chmod +x *.sh`
 
 ## Install Tensorflow and dependencies
-The kit requires an appropriate Tensorflow wheel to be downloaded (~62M) alongside the shell files.<br>
+The kit requires an appropriate Tensorflow wheel to be **already** downloaded (~62M) alongside the shell files.<br>
 See: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
 If you do not choose **tensorflow-1.12.0-cp35-none-linux_armv7l.whl** then you must correspondingly amend 
