@@ -57,7 +57,23 @@ camera = StillCamera(
 )
 """
 
+    Return a string that can be used as an image filename.
+    
+    By default, this has a date-time prefix followed by the node id, 
+    to ensure reasonable uniqueness, 
+    and so that files from multiple nodes sort in calendar order.
+
+"""
+def new_image_uri( node_id = None ):
+    return "{}-{}".format( 
+        timestamp(), 
+        node_id 
+    )
+"""
+
     Called during detection when an object is detected in an image.
+    
+    The key filter is on score thresholds.
     
 """    
 def detection_filter( class_name=None, score=None, box=None, frame=None ):
@@ -225,7 +241,12 @@ try:
         
             def next_image(): 
             
-                check_service()
+                # raises exception if suspended
+                # otherwise returns service properties
+                service = check_service()
+                
+                # default is platform.node()
+                service_node_id = service['NODE_ID'] if 'NODE_ID' in service else node()
 
                 # reload config
                 if 'NO_RELOAD' not in config or not config['NO_RELOAD']:
@@ -242,7 +263,7 @@ try:
                     config['CURRENT_FRAME'] = deepcopy( config['DETECTION_FRAME'] )
 
                 image = camera.pil_image()
-                image_uri = "{}-{}".format( timestamp(), node() )
+                image_uri = new_image_uri( node_id = service_node_id )
 
                 # create new context
                 return { 

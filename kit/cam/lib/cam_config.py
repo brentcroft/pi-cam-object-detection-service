@@ -26,11 +26,10 @@ def read_service():
 
 """
 def check_service():
-    sp = read_service()
-    if 'SUSPENDED' in sp and sp['SUSPENDED'] == "1":
+    service = read_service()
+    if 'SUSPENDED' in service and service['SUSPENDED'] == "1":
         raise ValueError( "Service was suspended!" )
-    if 'DISABLED' in sp and sp['DISABLED'] == "1":
-        raise ValueError( "Service is disabled!" )
+    return service
 """
 
 
