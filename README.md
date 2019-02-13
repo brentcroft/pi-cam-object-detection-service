@@ -7,7 +7,7 @@ Typically the output would be cropped to the detection frame, but here it's show
 
 ![demo](eb_12_v08_480x270_01c_500k-20.gif)
 
-To construct the animation, having printed out and located the animals (see: **sample-bird-prints.doc**), the following settings were used (see: **./cam/cam.properties**):
+To construct the animation, having printed out and located the animals (see: **sample-bird-prints.doc**), the following properties were used (see: **./cam/cam.properties**):
 
     CAMERA_RESOLUTION=[ 720, 405 ]
     DETECTION_APERTURE=[ 480, 270 ]
@@ -19,8 +19,8 @@ To construct the animation, having printed out and located the animals (see: **s
     CALENDAR_IMAGE_RAW=True
 
 Note that:
--  The actual detection frame rate is ~ 0.4 images/second
--  Towards the end of the animation, minimum score thresholds for some of the classes were increased to 0.999, then to zero, and then back to 0.4.
+-  The actual detection frame rate was ~ 0.4 images/second
+-  Towards the end of the animation, minimum score thresholds for some of the classes were increased to 0.999, and then back to 0.4 (properties are refreshed on each cycle).
 
 The boxed image files were collected from **/demo**, and then compressed into an animation (using https://ezgif.com/optimize).
 
