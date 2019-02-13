@@ -37,7 +37,9 @@ Once installed, the zip file and directory can be deleted.
 ## Service Configuration
 
 The service is configured by two properties files: **./cam/service.properties** & **./cam/cam.properties**. 
-See the comments in each file for specific details.
+
+
+See the comments in each file of these files for specific details, and the readme file in **./cam/** for further information.
 
 
 In the following sections, names in italic capitals (e.g. *CURRENT_IMAGE_STORE*) refer to keys in the file **./cam/cam.properties**.
