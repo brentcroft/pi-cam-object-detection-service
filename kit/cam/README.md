@@ -8,24 +8,32 @@ The service runs continually unless:
 
 NB: The service will attempt to restart regularly if the cron job is set.
 
+If **HTTP_SERVER=1** occurs in **./service.properties** then a minimal http file server will be started on *CURRENT_IMAGE_PORT* with file root *CURRENT_IMAGE_STORE*.
+
+NB: Because *CURRENT_IMAGE_STORE* is expected to be volatile storage, 
+every time the http file server starts, 
+it copies every file from **./site** (i.e. "index.html") into *CURRENT_IMAGE_STORE*.
+
+
+
 ## Flow
 The service starts when the python file **./lib/cam.py** is executed.
 
 The service first performs the following initialisation sequence:
 
 * read **./service.properties** & **./cam.properties**.
-* maybe cache the graph and label files if not found locally
-* initialize the graph
-* initialize the camera
-* initialize the current detection frame
-* start the camera
+* maybe cache graph and label files if not found locally
+* initialize graph
+* initialize camera
+* initialize current detection frame
+* start camera
 
 The service then opens a TensorFlow Session and repeats the following sequence forever, or until interrupted.
 
 * re-read **./service.properties** & **./cam.properties**
 * get camera image
 * crop detection frame from camera image and submit to graph
-* store any detection results and related images
+* store detection results and related images
 * maybe create boxed images
 * maybe adjust crop frame - tracking detections
 
