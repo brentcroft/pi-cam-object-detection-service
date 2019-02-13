@@ -39,7 +39,7 @@ Other SSD MobileNet graphs are available: https://github.com/tensorflow/models/b
 
 This kit has been tested with the following graphs (using the same properties as above):
 
-| Graph | File Size | Seconds/Image | Images/Second |
+| Graph | File Size | Seconds / Image | Images / Second |
 |---|---|---|---|
 | ssd_mobilenet_v1_0.75_depth_300x300_coco14_sync_2018_07_03               | 18m | 1.8 | 0.55 | 
 | ssd_mobilenet_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03 | 50m | Fails | | 
