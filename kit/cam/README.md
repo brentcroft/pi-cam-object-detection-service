@@ -1,3 +1,5 @@
+# Overview
+
 The service runs continually unless:
 
 1. The number of consecutive images with no detections exceeds *LOG_UNDETECTED_MAX_SEQ* in  in **./cam.properties**
