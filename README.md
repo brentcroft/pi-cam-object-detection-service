@@ -35,7 +35,7 @@ This kit requires the download of an appropriate Pi Tensorflow wheel, see: https
 One sample custom SSD Mobilenet PPN graph is provided as an arbitrary working example, 
 however, other SSD MobileNet graphs are available: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 
-This kit has been tried with the following graphs from the detection model zoo (using the same properties as above):
+This kit has been tried on **Pi 3 B+s** with the following graphs from the detection model zoo (using the same properties as above):
 
 | Graph | File Size | Seconds / Image | Images / Second |
 |---|---|---|---|
