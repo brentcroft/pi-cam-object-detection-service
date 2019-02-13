@@ -4,7 +4,7 @@ In the following sections, names in italic capitals (e.g. *CURRENT_IMAGE_STORE*)
 
 The service runs continually unless:
 
-1. The number of consecutive images with no detections exceeds *LOG_UNDETECTED_MAX_SEQ*
+1. The number of consecutive images with no detections exceeds *UNDETECTED_MAX_SEQ*
 2. **SUSPENDED=1** occurs in **./service.properties**
 3. The service is otherwise killed
 
@@ -16,13 +16,13 @@ NB: Because *CURRENT_IMAGE_STORE* is expected to be volatile storage,
 every time the http file server starts, 
 it copies every file from **./site** (i.e. "index.html") into *CURRENT_IMAGE_STORE*.
 
-
-## Flow
+## Architecture
 The service starts when **run-from-cron-tab.sh** is executed. 
 This is called regularly by the cron job, and irregularly by a console user.
 
 ![actors](actors.png)
 
+## Flow
 The service first performs the following initialisation sequence:
 
 * read **./service.properties** & **./cam.properties**.
