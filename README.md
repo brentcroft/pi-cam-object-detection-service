@@ -20,7 +20,7 @@ To construct the animation, having printed out and located the animals (see: **s
 
 Note that:
 -  The actual detection frame rate was ~ 0.4 images/second
--  Towards the end of the animation, minimum score thresholds for some of the classes were increased to 0.999, and then back to 0.4.
+-  Towards the end of the animation, minimum score thresholds for some of the classes were increased to 0.999, then to zero, and then back to 0.4.
 
 The boxed image files were collected from **/demo**, and then compressed into an animation (using https://ezgif.com/optimize).
 
