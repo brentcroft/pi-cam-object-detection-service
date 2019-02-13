@@ -18,9 +18,9 @@ To construct the animation, having printed out and located the animals (see: **s
     CALENDAR_DETECTION_STORE=/demo
     CALENDAR_IMAGE_RAW=True
 
-Note that:
-. The actual detection frame rate is ~ 0.4 images/second
-. Towards the end of the animation, minimum score thresholds for some of the classes were increased to 0.999, then to zero, and then back to 0.4.
+Note that:<br>
+. The actual detection frame rate is ~ 0.4 images/second<br>
+. Towards the end of the animation, minimum score thresholds for some of the classes were increased to 0.999, then to zero, and then back to 0.4.<br>
 
 The boxed image files were collected from **/demo**, and then compressed into an animation (using https://ezgif.com/optimize).
 
