@@ -2,27 +2,38 @@
 
 The service runs continually unless:
 
-1. The number of consecutive images with no detections exceeds *LOG_UNDETECTED_MAX_SEQ* in  in **./cam.properties**
+1. The number of consecutive images with no detections exceeds *LOG_UNDETECTED_MAX_SEQ* in **./cam.properties**
 2. **SUSPENDED=1** occurs in **./service.properties**
 3. The service is otherwise killed
 
-The service will attempt to restart regularly (assuming the cron job is set).
+NB: The service will attempt to restart regularly if the cron job is set.
 
-The service performs the following sequence:
+## Flow
+The service starts when the python file **./lib/cam.py** is executed.
 
-* Re-read **./service.properties** & **./cam.properties**.
-* Take a camera image.
-* Take a crop from the image and submit it to an Object Detection graph.
-* Store any detection results and the images to which they relate.
-* Maybe create boxed images.
-* Maybe adjust the crop frame, tracking detections.
+The service first performs the following initialisation sequence:
 
+* read **./service.properties** & **./cam.properties**.
+* maybe cache the graph and label files if not found locally
+* initialise the graph
+* initialise the camera
+* initialise the current detection frame
+* start the camera
 
-This sequence is specified in the python file is **./lib/cam.py**. 
+The service then opens a TensorFlow Session repeats the following sequence forever, or until interrupted.
 
-**cam.py** opens a TensorFlow Session and starts detecting forever, or until interrupted.
+* re-read **./service.properties** & **./cam.properties**
+* take a camera image
+* take a crop from the image and submit it to an Object Detection graph
+* store any detection results and the images to which they relate
+* maybe create boxed images
+* maybe adjust the crop frame, tracking detections
 
-It defines four functions with default implementations to be modified as required.
+NB: Once the camera is started, its properties are never refreshed; the service has to be restarted to change camera properties.
+
+ 
+## Customization
+The python file **./lib/cam.py** defines four functions with default implementations to be modified as required.
 
 A detection filter that returns Tue or False:
  
