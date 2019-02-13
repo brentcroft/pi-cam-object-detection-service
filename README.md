@@ -32,12 +32,10 @@ This kit has been tested only on multiple **Pi 3 B+s** with **Raspian Stretch Li
 
 This kit requires the download of an appropriate Pi Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
-One sample SSD Mobilenet PPN graph is provided as an arbitrary working example.
+One sample custom SSD Mobilenet PPN graph is provided as an arbitrary working example, 
+however, other SSD MobileNet graphs are available: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 
-Other SSD MobileNet graphs are available: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
-
-
-This kit has been tested with the following graphs (using the same properties as above):
+This kit has been tried with the following graphs from the detection model zoo (using the same properties as above):
 
 | Graph | File Size | Seconds / Image | Images / Second |
 |---|---|---|---|
@@ -46,22 +44,4 @@ This kit has been tested with the following graphs (using the same properties as
 | ssd_mobilenet_v1_ppn_shared_box_predictor_300x300_coco14_sync_2018_07_03 | 11m | 2.0 | 0.49 |
 | ssd_mobilenet_v2_coco_2018_03_29                                         | 68m | Fails | |
 | ssdlite_mobilenet_v2_coco_2018_05_09                                     | 20m | 2.2 | 0.47 | 
-
-
-To run the service with another graph:
-
-1. Create a new directory in **./cam/** named for the graph.
-*  The name of the directory is the "graph signature" and is referenced by the GRAPH property in **./cam/cam.properties**.
-
-2. Copy the frozen graph and labels file into the folder.
-*  The frozen graph must have the filename **frozen_inference_graph.pb**.
-*  The labels file must have the name **object-detection.pbtxt**.
-*  Determine the number of output categories in the graph.
-
-3. Modify **./cam/cam.properties** accordingly.
-*  The property GRAPH must refer to the graph directory.
-*  The property GRAPH_NUM_CLASSES must be the number of output categories in the graph.
-
-4. Restart the service
-
 
