@@ -22,17 +22,17 @@ Note that:
 -  The actual detection frame rate was ~ 0.4 images/second
 -  Towards the end of the animation, minimum score thresholds for some of the classes were increased to 0.999, then to zero, and then back to 0.4.
 
-The boxed image files were collected from **/demo**, and then compressed into an animation (using https://ezgif.com/optimize).
+The boxed image files were collected from **/demo**, appended into an animated GIF, and then the GIF was compressed using the tool at https://ezgif.com/optimize.
 
 See the readme file in **./kit** for further information.
 
 
 ## Please Note
-This kit has been tested only on multiple **Pi 3 B+s** with **Raspian Stretch Lite 2018-11-13** and **Camera Module V2**.
+This kit has been tested on multiple **Pi 3 B+s** with **Raspian Stretch Lite 2018-11-13** and **Camera Module V2**.
 
 This kit requires the download of an appropriate Pi Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
-One sample custom SSD Mobilenet PPN graph is provided as an arbitrary working example, 
+A sample custom SSD Mobilenet PPN graph is provided as an arbitrary working example, 
 however, other SSD MobileNet graphs are available: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 
 This kit has been tried on **Pi 3 B+s** with the following graphs from the detection model zoo (using the same properties as above):
@@ -44,4 +44,3 @@ This kit has been tried on **Pi 3 B+s** with the following graphs from the detec
 | ssd_mobilenet_v1_ppn_shared_box_predictor_300x300_coco14_sync_2018_07_03 | 11m | 2.0 | 0.49 |
 | ssd_mobilenet_v2_coco_2018_03_29                                         | 68m | Fails | |
 | ssdlite_mobilenet_v2_coco_2018_05_09                                     | 20m | 2.2 | 0.47 | 
-
