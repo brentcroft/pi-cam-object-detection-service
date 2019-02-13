@@ -15,19 +15,19 @@ The service first performs the following initialisation sequence:
 
 * read **./service.properties** & **./cam.properties**.
 * maybe cache the graph and label files if not found locally
-* initialise the graph
-* initialise the camera
-* initialise the current detection frame
+* initialize the graph
+* initialize the camera
+* initialize the current detection frame
 * start the camera
 
-The service then opens a TensorFlow Session repeats the following sequence forever, or until interrupted.
+The service then opens a TensorFlow Session and repeats the following sequence forever, or until interrupted.
 
 * re-read **./service.properties** & **./cam.properties**
-* take a camera image
-* take a crop from the image and submit it to an Object Detection graph
-* store any detection results and the images to which they relate
+* get camera image
+* crop detection frame from camera image and submit to graph
+* store any detection results and related images
 * maybe create boxed images
-* maybe adjust the crop frame, tracking detections
+* maybe adjust crop frame - tracking detections
 
 NB: Once the camera is started, its properties are never refreshed; the service has to be restarted to change camera properties.
 
@@ -35,17 +35,22 @@ NB: Once the camera is started, its properties are never refreshed; the service 
 ## Customization
 The python file **./lib/cam.py** defines four functions with default implementations to be modified as required.
 
-A detection filter that returns Tue or False:
+1. A detection filter that returns Tue or False:
  
     detection_filter( class_name=None, score=None, box=None, frame=None )
-    
-A tracking filter that may, or may not, recentre the frame on the target:
+
+2. A tracking filter that may, or may not, recentre the frame on the target:
 
     maybe_move( frame=None, target=None, step=0, max_size=None )
+    
+Given **context** contains raw and frame images, and maybe associated meta-data:
 
-Two event handlers, where the context contains raw and frame images, and maybe associated meta-data:
+3. An event handler called when there are no detections for an image (after filtering):
 
     on_no_objects( context = None )
+    
+4. An event handler called when there are detections, responsible for storage:
+
     on_detected_objects( context = None )
 
 
