@@ -1,7 +1,5 @@
 # Installation
 
-    
-## Unpack
 Unpack the kit, and open a console, into a directory on the pi. 
 If this is not **/home/pi** then you will have to make changes to the configuration later.
 
@@ -17,7 +15,7 @@ The kit requires an appropriate Tensorflow wheel to be **already** downloaded (~
 See: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
 If you do not choose **tensorflow-1.12.0-cp35-none-linux_armv7l.whl** then you must 
-amend correspondingly the file **01-build-tf-1.12-0-cp35.sh**, which has the following line hard-coded:
+amend the file **01-build-tf-1.12-0-cp35.sh** correspondingly, since it has the following line hard-coded:
 
     sudo pip3 install tensorflow-1.12.0-cp35-none-linux_armv7l.whl
 
@@ -30,19 +28,19 @@ This takes about 30 mins on a fast network.
 
 This script downloads the full object detection archive (**models.zip** ~500M), and then unzips it to a directory named **./tfod_install**.
 It then runs the build and setup python scripts to install **object_detection**, and then **slim**.
-Once installed, the zip file and directory can be deleted.
 
 ![after install](home-directory.png)
+
+Once installed, the zip file and directory can be deleted.
 
 
 ## Service Configuration
 
-The service is configured by two properties files: **./cam/service.properties** & **./cam/cam.properties**.
-
+The service is configured by two properties files: **./cam/service.properties** & **./cam/cam.properties**. 
 See the comments in each file for specific details.
 
-In the following text, names in italic capitals (e.g. *CURRENT_IMAGE_STORE*) refer to keys in the file **./cam/cam.properties**.
 
+In the following sections, names in italic capitals (e.g. *CURRENT_IMAGE_STORE*) refer to keys in the file **./cam/cam.properties**.
 
 ### Assign RAM drive on *CURRENT_IMAGE_STORE*
 
