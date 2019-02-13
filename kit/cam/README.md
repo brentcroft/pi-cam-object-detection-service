@@ -37,21 +37,21 @@ The python file **./lib/cam.py** defines four functions with default implementat
 
 1. A detection filter that returns Tue or False:
  
-    detection_filter( class_name=None, score=None, box=None, frame=None )
+    `detection_filter( class_name=None, score=None, box=None, frame=None )`
 
 2. A tracking filter that may, or may not, recentre the frame on the target:
 
-    maybe_move( frame=None, target=None, step=0, max_size=None )
-    
+    `maybe_move( frame=None, target=None, step=0, max_size=None )`
+
 Given **context** contains raw and frame images, and maybe associated meta-data:
 
 3. An event handler called when there are no detections for an image (after filtering):
 
-    on_no_objects( context = None )
+    `on_no_objects( context = None )`
     
 4. An event handler called when there are detections, responsible for storage:
 
-    on_detected_objects( context = None )
+    `on_detected_objects( context = None )`
 
 
     
