@@ -7,7 +7,7 @@ Typically the output would be cropped to the detection frame, but here it's show
 
 ![demo](eb_12_v08_480x270_01c_500k-20.gif)
 
-To construct the animation, having printed out and located the animals (see: **sample-bird-prints.doc**), the following properties were used (see: **./cam/cam.properties**):
+To construct the animation, having printed out and located the animals (see: **sample-bird-prints.doc**), the following properties were set (see: **./cam/cam.properties**):
 
     CAMERA_RESOLUTION=[ 720, 405 ]
     DETECTION_APERTURE=[ 480, 270 ]
