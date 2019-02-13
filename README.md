@@ -3,13 +3,12 @@
 This kit provides the Pi Cam Object Detection Service. 
 The service is designed to run 24x7 on a Pi with a camera, to survive restarts, and to produce output suitable for ground truth harvesting.
 
-The following animation demonstrates the key features:
+The following animation demonstrates the key features.
+Typically the output would be cropped to the detection frame, but here it's shown raw to demonstrate detection frame tracking within the camera resolution.
 
 ![demo](eb_12_v08_480x270_01c_500k-20.gif)
 
-Typically the output would be cropped to the detection frame, but here it's shown raw to demonstrate detection frame tracking within the camera resolution.
-
-To construct the animation, after printing and cutting out the animals (see: **sample-bird-prints.doc**), the following settings were used (see: **./cam/cam.properties**):
+To construct the animation, having printed out and located the animals (see: **sample-bird-prints.doc**), the following settings were used (see: **./cam/cam.properties**):
 
     CAMERA_RESOLUTION=[ 720, 405 ]
     DETECTION_APERTURE=[ 480, 270 ]
