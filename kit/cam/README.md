@@ -18,7 +18,8 @@ it copies every file from **./site** (i.e. "index.html") into *CURRENT_IMAGE_STO
 
 
 ## Flow
-The service starts when the **run-from-cron-tab.sh** is executed.
+The service starts when **run-from-cron-tab.sh** is executed. 
+This is called regularly by the cron job, and irregularly by a console user.
 
 ![actors](actors.png)
 
