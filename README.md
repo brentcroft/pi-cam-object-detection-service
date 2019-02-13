@@ -28,7 +28,9 @@ See the readme file in **./kit** for further information.
 
 
 ## Please Note
-The kit requires the download of an appropriate Pi Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
+This kit has been tested only on a *Pi 3 B+* with Raspian Stretch Lite 2018-11-13 and a PiCam v2.1.
+
+This kit requires the download of an appropriate Pi Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
 One sample SSD Mobilenet PPN graph is provided as an arbitrary working example.
 
