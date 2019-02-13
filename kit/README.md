@@ -44,6 +44,27 @@ See the readme file in **./cam** for further information.
 
 In the following sections, names in italic capitals (e.g. *CURRENT_IMAGE_STORE*) refer to keys in the file **./cam/cam.properties**.
 
+
+### Install a new graph:
+
+To install a new graph:
+
+1. Create a new directory in **./cam/** named for the graph.
+*  The name of the directory is the "graph signature" and is referenced by the GRAPH property in **./cam/cam.properties**.
+
+2. Copy the frozen graph and labels file into the folder.
+*  The frozen graph must have the filename **frozen_inference_graph.pb**.
+*  The labels file must have the name **object-detection.pbtxt**.
+*  Determine the number of output categories in the graph.
+
+3. Modify **./cam/cam.properties** accordingly.
+*  The property GRAPH must refer to the graph directory.
+*  The property GRAPH_NUM_CLASSES must be the number of output categories in the graph.
+
+4. Restart the service
+
+
+
 ### Assign RAM drive on *CURRENT_IMAGE_STORE*
 
 When *CURRENT_IMAGE_STORE* exists and names a directory, 
@@ -66,7 +87,5 @@ Use `sudo crontab -e` and add the entry:
 
 The service detects when it is already running, but will regularly try to restart.
 The service regularly checks whether **SUSPENDED=1** occurs in **./cam/service.properties**, and if so, any running service is terminated.
-
-
 
 
