@@ -17,9 +17,10 @@ every time the http file server starts,
 it copies every file from **./site** (i.e. "index.html") into *CURRENT_IMAGE_STORE*.
 
 
-
 ## Flow
-The service starts when the python file **./lib/cam.py** is executed.
+The service starts when the **run-from-cron-tab.sh** is executed.
+
+![actors](actors.png)
 
 The service first performs the following initialisation sequence:
 
