@@ -28,7 +28,7 @@ See the readme file in **./kit** for further information.
 
 
 ## Please Note
-This kit has been tested only on a *Pi 3 B+* with Raspian Stretch Lite 2018-11-13 and a PiCam v2.1.
+This kit has been tested only on multiple **Pi 3 B+s** with **Raspian Stretch Lite 2018-11-13** and **Camera Module V2**.
 
 This kit requires the download of an appropriate Pi Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
