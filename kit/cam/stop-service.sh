@@ -1,6 +1,5 @@
 #!/bin/bash
 #
-set -e
 
 sudo ./kill-pi-cam-od.sh
 
