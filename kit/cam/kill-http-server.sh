@@ -8,7 +8,7 @@ source service.properties
 
 #
 DATE=`date '+%Y-%m-%d %H:%M:%S'`
-PREFIX="$DATE http [${NODE_ID}]:"
+PREFIX="$DATE [${NODE_ID}] http:"
 
 
 #
