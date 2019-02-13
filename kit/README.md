@@ -38,8 +38,7 @@ Once installed, the zip file and directory can be deleted.
 
 The service is configured by two properties files: **./cam/service.properties** & **./cam/cam.properties**. 
 
-
-See the comments in each of these files for specific details, and the readme file in **./cam/** for further information.
+See the readme file in **./cam** for further information.
 
 <br>
 
@@ -66,7 +65,7 @@ Use `sudo crontab -e` and add the entry:
     * * * * * /home/pi/cam/run-from-cron.sh
 
 The service detects when it is already running, but will regularly try to restart.
-The service regularly checks that **SUSPENDED=0** in the file **./cam/service.properties**, and if not any running service is terminated.
+The service regularly checks whether **SUSPENDED=1** occurs in **./cam/service.properties**, and if so, any running service is terminated.
 
 
 

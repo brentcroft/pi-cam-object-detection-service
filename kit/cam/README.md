@@ -1,8 +1,10 @@
 # Overview
 
+In the following sections, names in italic capitals (e.g. *CURRENT_IMAGE_STORE*) refer to keys in the file **./cam.properties**.
+
 The service runs continually unless:
 
-1. The number of consecutive images with no detections exceeds *LOG_UNDETECTED_MAX_SEQ* in **./cam.properties**
+1. The number of consecutive images with no detections exceeds *LOG_UNDETECTED_MAX_SEQ*
 2. **SUSPENDED=1** occurs in **./service.properties**
 3. The service is otherwise killed
 
