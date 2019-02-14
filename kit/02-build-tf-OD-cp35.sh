@@ -47,7 +47,7 @@ echo " building object_detection egg..."
 python3 setup.py build
 
 echo " installing object_detection egg..."
-python3 setup.py install
+sudo python3 setup.py install
 
 echo "${title} installed. (python3)"
 
@@ -61,6 +61,6 @@ echo " building slim egg..."
 python3 setup.py build
 
 echo " installing slim egg..."
-python3 setup.py install
+sudo python3 setup.py install
 
 echo "${title} SLIM installed (python3)"
