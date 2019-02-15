@@ -105,12 +105,12 @@ def detection_filter( class_name=None, score=None, box=None, frame=None ):
         if root_area_ratio > max_ratio:
             # default is False
             if log_rejections:
-                log_message( "BOX_AREA_MIN_MAX_RATIO [{}] rejected-max: root_area_ratio={}".format( max_ratio, root_area_ratio ) )
+                log_message( "BOX_AREA_MIN_MAX_RATIO [{}] rejected-max: root_area_ratio={:.4f}".format( max_ratio, root_area_ratio ) )
             return False
             
         if root_area_ratio < min_ratio:
             if log_rejections:
-                log_message( "BOX_AREA_MIN_MAX_RATIO [{}] rejected-min: root_area_ratio={}".format( min_ratio, root_area_ratio ) )
+                log_message( "BOX_AREA_MIN_MAX_RATIO [{}] rejected-min: root_area_ratio={:.4f}".format( min_ratio, root_area_ratio ) )
             return False
 
     
@@ -121,12 +121,12 @@ def detection_filter( class_name=None, score=None, box=None, frame=None ):
 
         if width_ratio > max_width_ratio:
             if log_rejections:
-                log_message( "BOX_DIM_MAX_RATIO [{}] rejected: width-ratio ({}/{})={}".format( max_width_ratio, w, fw , width_ratio) )
+                log_message( "BOX_DIM_MAX_RATIO [{}] rejected: width-ratio ({}/{})={:.4f}".format( max_width_ratio, w, fw , width_ratio) )
             return False
             
         if height_ratio > max_height_ratio:
             if log_rejections:
-                log_message( "BOX_DIM_MAX_RATIO [{}] rejected: height-ratio ({}/{})={}".format( max_height_ratio, h, fh, height_ratio ) )
+                log_message( "BOX_DIM_MAX_RATIO [{}] rejected: height-ratio ({}/{})={:.4f}".format( max_height_ratio, h, fh, height_ratio ) )
             return False    
 
     if 'BOX_DIM_MAX_DEVIATION' in config:
@@ -135,7 +135,7 @@ def detection_filter( class_name=None, score=None, box=None, frame=None ):
        
         if box_deviation > max_box_deviation:
             if log_rejections:
-                log_message( "BOX_DIM_MAX_DEVIATION [{}] rejected: deviation={}".format( max_box_deviation, box_deviation ) )
+                log_message( "BOX_DIM_MAX_DEVIATION [{}] rejected: deviation={:.4f}".format( max_box_deviation, box_deviation ) )
             return False
             
     return True 
