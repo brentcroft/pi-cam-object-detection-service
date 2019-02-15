@@ -74,6 +74,9 @@ The service regularly checks whether **SUSPENDED=1** occurs in **./cam/service.p
 
 Graph files are cached locally within sub-directories in the **./cam/** directory.
 
+![after graph install](cam-directory.png)
+
+
 To install a new graph:
 
 1. Create a new directory in **./cam/** named for the graph.
