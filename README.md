@@ -24,7 +24,7 @@ To construct the animation, having printed out and located the animals (see: **s
 Note that:
 -  The actual detection frame rate was ~ 0.4 images/second
 -  Towards the end of the animation, minimum score thresholds for some of the classes were increased to 0.999, then to zero, and then back to 0.4.
--  For a **Camera Module V2** "production" node, I would have: CAMERA_RESOLUTION=[ 3280, 2464 ], DETECTION_APERTURE=[ 1920, 1080 ].
+-  For a **Camera Module V2** "production" node, I would have: `CAMERA_RESOLUTION=[ 3280, 2464 ], DETECTION_APERTURE=[ 1920, 1080 ]` (remembering to set GPU memory to 256 in **raspi-config**).
 
 The boxed image files were collected from **/demo**, appended into an animated GIF, and then the GIF was compressed using the tool at https://ezgif.com/optimize.
 
