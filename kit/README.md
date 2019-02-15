@@ -1,4 +1,4 @@
-# Installation
+# Commissioning a new node
 
 Unpack the kit, and open a console, into a directory on the pi. 
 If this is not **/home/pi** then you will have to make changes to the configuration later.
