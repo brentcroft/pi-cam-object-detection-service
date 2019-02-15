@@ -3,4 +3,5 @@
 
 sudo ./kill-pi-cam-od.sh
 
-sudo ./kill-http-server.sh
+# leave server running
+#sudo ./kill-http-server.sh

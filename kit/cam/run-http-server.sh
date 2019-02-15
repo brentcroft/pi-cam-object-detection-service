@@ -26,7 +26,7 @@ if [ "$pids" = "" ]; then
 else
     echo "$PREFIX already running: pids=$pids"
     
-    if [ "$SUSPENDED" = "1" ]; then
+    if [ ! "$HTTP_SERVER" = "1" ]; then
         echo "$PREFIX suspended, killing..."
         ./kill-http-server.sh
     fi    
