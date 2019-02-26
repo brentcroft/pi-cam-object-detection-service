@@ -11,6 +11,8 @@ from PIL import ImageFont
 
 """
 from ground_truth import put_file_meta
+from ground_truth import put_csv_meta
+
 from util import switch_file
 from util import datestamp
 from util import log_message
@@ -161,8 +163,10 @@ def store_image_and_detection_files( context=None, config=None):
     
     stored_paths = {}
     
+    date_text = datestamp()
+    
     if 'CALENDAR_IMAGE_STORE' in config and config['CALENDAR_IMAGE_STORE'] is not None:
-        store_dir = os.path.join( config['CALENDAR_IMAGE_STORE'], datestamp() )
+        store_dir = os.path.join( config['CALENDAR_IMAGE_STORE'], date_text )
         if not os.path.exists( store_dir ):
             os.makedirs( store_dir )
         
@@ -189,7 +193,7 @@ def store_image_and_detection_files( context=None, config=None):
 
 
     if 'CALENDAR_DETECTION_STORE' in config and config['CALENDAR_DETECTION_STORE'] is not None:
-        store_dir = os.path.join( config['CALENDAR_DETECTION_STORE'], datestamp(), config['GRAPH'] )
+        store_dir = os.path.join( config['CALENDAR_DETECTION_STORE'], date_text, config['GRAPH'] )
         if not os.path.exists( store_dir ):
             os.makedirs( store_dir )
             
@@ -200,10 +204,17 @@ def store_image_and_detection_files( context=None, config=None):
         else:
             _, meta_data = context['frame']
 
-        
+            
         put_file_meta( detection_file, meta_data )
-        
         stored_paths[ 'calendar_detection_file' ] = detection_file
+
+
+        # relative image folder wrt this CSV file
+        meta_data['folder'] = os.path.relpath( meta_data['folder'], config['CALENDAR_DETECTION_STORE'] )        
+        csv_log_file = "{}_{}_log.csv".format( date_text, config['GRAPH'] )
+        
+        put_csv_meta( os.path.join( config['CALENDAR_DETECTION_STORE'], csv_log_file ), meta_data )
+        
 
         
     if 'CURRENT_IMAGE_STORE' in config and config['CURRENT_IMAGE_STORE'] is not None:
@@ -222,11 +233,10 @@ def store_image_and_detection_files( context=None, config=None):
             image, meta_data = context['raw']
         else:
             image, meta_data = context['frame']
-
-            
         
         
         # update meta data
+        meta_data['size'] = ( image.width, image.height, 3 ) 
         meta_data['folder'] = store_dir
         meta_data['filename'] = image_filename          
         
@@ -240,6 +250,7 @@ def store_image_and_detection_files( context=None, config=None):
         image.save( temp_image_file )
         
         put_file_meta( temp_detection_file, meta_data )
+        put_csv_meta( os.path.join( store_dir, "detections.csv" ), meta_data )
         
         switch_file( temp_image_file, image_file )        
         switch_file( temp_detection_file, detection_file )  
