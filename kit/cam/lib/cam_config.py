@@ -84,7 +84,7 @@ def read_config( log = False ):
     props.set_int_or( config, 'LOG_UNDETECTED_FREQ' )
     
     # quit after this many undetections
-    props.set_int_or( config, 'LOG_UNDETECTED_MAX_SEQ' )
+    props.set_int_or( config, 'UNDETECTED_MAX_SEQ' )
     
     # constraints on detections
     props.set_float_or( config, 'DETECTION_MIN_SCORE' ) 
