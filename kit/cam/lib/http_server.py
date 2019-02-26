@@ -28,12 +28,22 @@ port = config['CURRENT_IMAGE_PORT'] if 'CURRENT_IMAGE_PORT' in config else 8080
 
 
 """
+def copy_child_items( source_dir, target_dir ):
+    site_dir = "./site"
+    for item in os.listdir( source_dir ):
+        source_item = os.path.join( source_dir, item )
+        target_item = os.path.join( target_dir, item )
+        if os.path.isdir( source_item ):
+            if not os.path.exists( target_item ):
+                os.mkdir( target_item )
+            copy_child_items( source_item, target_item )
+        else:
+            copyfile( source_item, target_item )
+
 try:    
     # ram directory is empty on restart
     # so ensure site files
-    site_dir = "./site"
-    for site_file in os.listdir( site_dir ):
-        copyfile( os.path.join( site_dir, site_file ), os.path.join( web_dir, site_file ) )
+    copy_child_items( "./site", web_dir )
     
     # now change dir so server serves site files
     os.chdir( web_dir )
