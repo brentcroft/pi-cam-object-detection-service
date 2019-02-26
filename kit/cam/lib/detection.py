@@ -237,10 +237,10 @@ def next_detected_image(
         
         
         # default is 100
-        max_seq = config['LOG_UNDETECTED_MAX_SEQ'] if 'LOG_UNDETECTED_MAX_SEQ' in config else 100 
+        max_seq = config['UNDETECTED_MAX_SEQ'] if 'UNDETECTED_MAX_SEQ' in config else 100 
         
         if seq >= max_seq:
-            raise ValueError( "Hit max. seq [{}], retiring.".format( seq ) )
+            raise ValueError( "UNDETECTED_MAX_SEQ [{}], retiring.".format( seq ) )
 
     # convert to GT format
     # boxes relative to raw
@@ -302,8 +302,8 @@ def detect_forever(
         do_stats = True
  
         if do_stats:
-            num_detections = len( context['raw'][1] ) if len( context['raw'] ) > 0 else 0
-            
+            num_detections = len( context['raw'][1]['objects'] ) if 'objects' in context['raw'][1] else 0
+                        
             end_time = time.time()
             duration = ( end_time - start_time )
 
