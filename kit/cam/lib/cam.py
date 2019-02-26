@@ -198,7 +198,7 @@ def on_detected_objects( context = None ):
     
     if log_detections and stats is not None:
         num_objects, duration, s_per_i, i_per_s = stats
-        log_message( 'Detections: total=[{:>3}], seq={:>3}; {}s [{} s/i, {} i/s].'.format( num_objects, seq, duration, s_per_i, i_per_s ) )                       
+        log_message( 'Detections: total=[{}], seq={}; {}s [{} s/i, {} i/s].'.format( num_objects, seq, duration, s_per_i, i_per_s ) )                       
 
     # maybe store images and detections
     stored_paths = store_image_and_detection_files( context=context, config=config )
@@ -290,7 +290,7 @@ except Exception as e:
     log_message( "{}".format( e ) )
     
     ok_messages = [
-        "Hit max. seq",
+        "UNDETECTED_MAX_SEQ",
         "Service was suspended"
     ]
     
