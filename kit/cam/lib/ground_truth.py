@@ -5,6 +5,8 @@
    
 """
 from lxml import etree as ET
+from os.path import isfile
+from util import timestamp
 """
 
     None becomes the empty string
@@ -174,3 +176,55 @@ def put_file_meta( classification_file, meta_data ):
         write_attributes_to_element( root, meta_data["attributes"] )
     
     root.getroottree().write( classification_file, pretty_print=True )
+
+    
+
+def put_csv_meta( csv_file=None, meta_data=None ):
+    header = None if isfile( csv_file ) else [
+            "timestamp",
+            "folder",
+            "filename",
+            "width", 
+            "height", 
+            "item",
+            "name", 
+            "xmin", 
+            "ymin",
+            "xmax",            
+            "ymax", 
+            "score" 
+        ]
+    
+    # common for all objects in meta_data
+    size = meta_data['size']
+    folder, filename, width, height = meta_data['folder'], meta_data['filename'], str( int( size[0] ) ), str( int( size[1] ) ),         
+
+    event_timestamp = timestamp()
+    
+    lines = []
+    item_no = 1
+    for item in meta_data["objects"]:
+        lines += [ [ 
+                event_timestamp, 
+                folder, 
+                filename, 
+                width, height, 
+                str( item_no ), 
+                item["name"] 
+            ] + [ 
+                str( int( b ) ) for b in item["box"] 
+            ] + [ 
+                str( float( item['score'] ) ) 
+            ] ]
+        item_no += 1
+            
+            
+            
+    with open( csv_file, 'a' ) as f:  
+        if header is not None:
+            f.write( "{}\n".format( ", ".join( header ) ) )
+        for line in lines:    
+            f.write( "{}\n".format( ", ".join( line ) ) ) 
+
+
+    
