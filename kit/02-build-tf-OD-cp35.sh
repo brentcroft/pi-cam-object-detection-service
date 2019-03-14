@@ -27,7 +27,7 @@ else
     echo "${title} archive already unpacked."
 fi
 
-cd $install_dir/models-master/research
+cd ~/$install_dir/models-master/research
 
 
 echo "${title} compiling proto files..."
