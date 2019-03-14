@@ -14,7 +14,10 @@ amend the file **01-build-tf-1.12-0-cp35.sh** correspondingly, since it has the 
 
     sudo pip3 install tensorflow-1.12.0-cp35-none-linux_armv7l.whl
 
-
+<br>
+Once the service is installed and started, you can view the images being taken by pointing a browser at port 8080 on the pi.
+<br>
+    
 
 ## Install Tensorflow and dependencies
 
@@ -64,6 +67,9 @@ Use `sudo nano /etc/fstab` and add the entry:
 
 
 ### Set Cron Job for Resilience 
+
+The service is designed to stop when the number of consecutive images **with no detections** exceeds *UNDETECTED_MAX_SEQ* (by default 100).
+You either have to manually restart the service, or set a cron job as follows.
 
 Use `sudo crontab -e` and add the entry:
 
