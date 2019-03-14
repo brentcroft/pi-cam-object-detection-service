@@ -37,8 +37,10 @@ It then runs the build and setup python scripts to install **object_detection**,
 
 Once installed, the zip file and directory can be deleted.
 
-<br>
-When the service running, you can view the images being taken by pointing a browser at port 8080 on the pi.
+
+## HTTP Server 
+
+When the service is running, you can view the images being taken by pointing a browser at port 8080 on the pi.
 
 
 
