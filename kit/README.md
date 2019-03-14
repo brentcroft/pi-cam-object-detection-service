@@ -5,12 +5,7 @@ If this is not **/home/pi** then you will have to make changes to the configurat
 
 Make the two shell files executable: `chmod +x *.sh`
 
-## Install Tensorflow and dependencies
-
-Run `./01-build-tf-1.12-0-cp35.sh`
-
-This takes about 15 mins on a fast network.
-
+**PLEASE NOTE**
 The kit requires an appropriate Tensorflow wheel to be **already** downloaded (~62M) alongside the shell files.<br>
 See: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
@@ -20,11 +15,20 @@ amend the file **01-build-tf-1.12-0-cp35.sh** correspondingly, since it has the 
     sudo pip3 install tensorflow-1.12.0-cp35-none-linux_armv7l.whl
 
 
+
+## Install Tensorflow and dependencies
+
+Run `./01-build-tf-1.12-0-cp35.sh`
+
+This takes about 15-60 mins depending on network speed.
+
+
+
 ## Install Tensorflow Object Detection and Slim
 
 Run `./02-build-tf-OD-cp35.sh`<br>
 
-This takes about 30 mins on a fast network.
+This takes about 30-60 mins depending on network speed.
 
 This script downloads the full object detection archive (**models.zip** ~500M), and then unzips it to a directory named **./tfod_install**.
 It then runs the build and setup python scripts to install **object_detection**, and then **slim**.
