@@ -5,7 +5,7 @@ If this is not **/home/pi** then you will have to make changes to the configurat
 
 Make the two shell files executable: `chmod +x *.sh`
 
-**PLEASE NOTE**
+**PLEASE NOTE:**
 The kit requires an appropriate Tensorflow wheel to be **already** downloaded (~62M) alongside the shell files.<br>
 See: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
@@ -14,9 +14,6 @@ amend the file **01-build-tf-1.12-0-cp35.sh** correspondingly, since it has the 
 
     sudo pip3 install tensorflow-1.12.0-cp35-none-linux_armv7l.whl
 
-<br>
-Once the service is installed and started, you can view the images being taken by pointing a browser at port 8080 on the pi.
-<br>
     
 
 ## Install Tensorflow and dependencies
@@ -39,6 +36,10 @@ It then runs the build and setup python scripts to install **object_detection**,
 ![after install](home-directory.png)
 
 Once installed, the zip file and directory can be deleted.
+
+<br>
+When the service running, you can view the images being taken by pointing a browser at port 8080 on the pi.
+
 
 
 ## Service Configuration
