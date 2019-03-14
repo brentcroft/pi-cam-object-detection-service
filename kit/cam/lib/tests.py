@@ -1,3 +1,47 @@
+from os import remove
+"""
+
+
+
+"""
+from ground_truth import put_csv_meta
+
+header = 'folder, filename, width, height, item, name, xmin, ymin, xmax, ymax, score'
+body1 = [ 'folder1', 'file1', '101', '201', 'yellow', '11', '21', '31', '41', '0.73498' ]
+body2 = [ 'folder2', 'file2', '102', '202', 'green', '12', '22', '32', '42', '0.234' ]
+
+def get_meta_data( body ):
+    return {
+        'folder': body[0],
+        'filename': body[1],
+        'size': [ int( body[2] ), int( body[3] ), 3 ],
+        'objects': [
+            {
+                'name': body[4],
+                'box': [ int( body[5] ), int( body[6] ), int( body[7] ), int( body[8] ) ],
+                'score': float( body[9] )
+            }
+        ]
+    }
+csv_log_file = 'test.csv'
+try:
+    put_csv_meta( csv_file=csv_log_file, meta_data=get_meta_data( body1 ) )
+    put_csv_meta( csv_file=csv_log_file, meta_data=get_meta_data( body2 ) )
+    
+    with open (csv_log_file, "r") as f:
+        data=f.readlines()
+        
+    #print( "data[0]: {}".format( data[0] )) 
+    #print( "data[1]: {}".format( data[1] )) 
+    
+    assert data[0] == "{}\n".format( header )
+    assert data[1] == "{}\n".format( ", ".join( body1 ) )
+    assert data[2] == "{}\n".format( ", ".join( body2 ) )  
+    
+except Exception as e:
+    raise AssertionError( "{}".format( e ) )
+finally:
+    remove( csv_log_file )
 """
 
 
