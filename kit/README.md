@@ -41,7 +41,7 @@ Once installed, the zip file and directory can be deleted.
 ## HTTP Server 
 
 When the service is running, you can view the images being taken by pointing a browser at port 8080 on the pi. 
-Since the service re-reads it's configuration regularly, most changes to configuration will quickly be visible in a browser.
+Since the service re-reads it's configuration regularly, most changes to configuration will quickly be visible.
 
 
 ## Service Configuration
