@@ -14,7 +14,7 @@ sudo apt-get install -y python3-pip
 sudo apt-get update -y
 
 # see: https://github.com/lhelontra/tensorflow-on-arm/releases
-sudo pip3 tensorflow-2.0.0-cp37-none-linux_armv7l.whl
+sudo pip3 install tensorflow-2.0.0-cp37-none-linux_armv7l.whl
 
 
 sudo pip3 install datetime
