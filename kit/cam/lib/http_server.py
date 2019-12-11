@@ -1,14 +1,18 @@
 """
     see:
     https://docs.python.org/3/library/http.server.html#http.server.HTTPServer
+    https://gist.github.com/gnilchee/246474141cbe588eb9fb
 """
-import http.server
 import socketserver
+
+import sys, os, socket
+from socketserver import ThreadingMixIn, TCPServer
+from http.server import SimpleHTTPRequestHandler, HTTPServer
+
 """
 
 
 """
-import os
 from shutil import copyfile
 from cam_config import read_config
 """
@@ -29,7 +33,7 @@ port = config['CURRENT_IMAGE_PORT'] if 'CURRENT_IMAGE_PORT' in config else 8080
 
 """
 def copy_child_items( source_dir, target_dir ):
-    site_dir = "./site"
+    # site_dir = "./site"
     for item in os.listdir( source_dir ):
         source_item = os.path.join( source_dir, item )
         target_item = os.path.join( target_dir, item )
@@ -40,17 +44,26 @@ def copy_child_items( source_dir, target_dir ):
         else:
             copyfile( source_item, target_item )
 
-try:    
+
+class ThreadingSimpleServer(ThreadingMixIn, HTTPServer):
+    pass
+
+
+httpd = None
+
+try:
     # ram directory is empty on restart
     # so ensure site files
     copy_child_items( "./site", web_dir )
-    
+
     # now change dir so server serves site files
     os.chdir( web_dir )
+
+    #httpd = TCPServer( ( "", port ), SimpleHTTPRequestHandler )
+    httpd = ThreadingSimpleServer( ( '0.0.0.0', port ), SimpleHTTPRequestHandler )
     
-    httpd = socketserver.TCPServer( ( "", port ), http.server.SimpleHTTPRequestHandler )
     httpd.serve_forever()
-    
+
 finally:
     if httpd is not None:
         httpd.shutdown()

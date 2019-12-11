@@ -11,6 +11,14 @@ current_milli_time = lambda: int(round(time.time() * 1000))
 """
 
 """
+def timetext():
+    now = time.time()
+    localtime = time.localtime(now)
+    milliseconds = '%03d' % int((now - int(now)) * 1000)
+    return time.strftime('%H:%M:%S.', localtime) + milliseconds
+"""
+
+"""
 def timestamp():
     now = time.time()
     localtime = time.localtime(now)

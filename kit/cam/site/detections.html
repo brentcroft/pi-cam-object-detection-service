@@ -1,0 +1,42 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+        
+    </head>
+    <body onload="start_reloader()">
+        <div id='table-container'></div>
+        
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.csv.min.js"></script>
+        <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+        <script type="text/javascript" src="js/csv_to_html_table.js"></script> 
+
+        <script type="text/javascript">
+          function format_link(link){
+            if (link)
+              return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+            else
+              return "";
+          }
+          CsvToHtmlTable.init({
+            csv_path: 'detections.csv',
+            element: 'table-container', 
+            allow_download: true,
+            csv_options: {separator: ','},
+            datatables_options: {"paging": false}
+          });
+        </script>        
+    </body>
+</html>

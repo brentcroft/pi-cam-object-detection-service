@@ -204,6 +204,13 @@ def store_image_and_detection_files( context=None, config=None):
         else:
             _, meta_data = context['frame']
 
+        # add context and config attributes
+        attributes = meta_data['attributes'] if 'attributes' in meta_data else {}
+        attributes['graph'] = config['GRAPH']
+        attributes['frame'] = config['CURRENT_FRAME']
+        attributes['light_level'] = context['light_level']
+        meta_data['attributes'] = attributes
+
             
         put_file_meta( detection_file, meta_data )
         stored_paths[ 'calendar_detection_file' ] = detection_file
@@ -285,7 +292,7 @@ def store_boxed_image( context=None, stored_paths=None, meta_data=None, config=N
     calendar_has_boxes = False
     calendar_has_annotation = False
 
-    image_annotation = context['uri']
+    image_annotation = "{} {} @ {}".format( context['uri'], config['GRAPH'], config['DETECTION_MIN_SCORE'] )
     
     # boxed image alongside detection file in daily directory
     if stored_paths is not None and 'calendar_detection_file' in stored_paths:
@@ -309,7 +316,7 @@ def store_boxed_image( context=None, stored_paths=None, meta_data=None, config=N
         calendar_has_annotation = True
     
         # alongside image
-        boxed_image_path = stored_paths['calendar_detection_file'].split(".")[0] + "_boxed.jpg"
+        boxed_image_path = os.path.splitext( stored_paths['calendar_detection_file'] )[0] + "_boxed.jpg"
         image.save( boxed_image_path )
 
 

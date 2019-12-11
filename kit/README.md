@@ -9,33 +9,21 @@ Make the two shell files executable: `chmod +x *.sh`
 The kit requires an appropriate Tensorflow wheel to be **already** downloaded (~62M) alongside the shell files.<br>
 See: https://github.com/lhelontra/tensorflow-on-arm/releases.
 
-If you do not choose **tensorflow-1.12.0-cp35-none-linux_armv7l.whl** then you must 
-amend the file **01-build-tf-1.12-0-cp35.sh** correspondingly, since it has the following line hard-coded:
+If you do not choose **tensorflow-2.0.0-cp37-none-linux_armv7l.whl** then you must 
+amend the file **01-build-tf-2.0.0-cp37.sh** correspondingly, since it has the following line hard-coded:
 
-    sudo pip3 install tensorflow-1.12.0-cp35-none-linux_armv7l.whl
+    sudo pip3 tensorflow-2.0.0-cp37-none-linux_armv7l.whl
 
     
 
 ## Install Tensorflow and dependencies
 
-Run `./01-build-tf-1.12-0-cp35.sh`
+Run `./01-build-tf-2.0.0-cp37.sh`
 
-This takes about 15-60 mins depending on network speed.
+This takes about 15-30 mins depending on network speed.
 
-
-
-## Install Tensorflow Object Detection and Slim
-
-Run `./02-build-tf-OD-cp35.sh`<br>
-
-This takes about 30-60 mins depending on network speed.
-
-This script downloads the full object detection archive (**models.zip** ~500M), and then unzips it to a directory named **./tfod_install**.
-It then runs the build and setup python scripts to install **object_detection**, and then **slim**.
 
 ![after install](home-directory.png)
-
-Once installed, the zip file and directory can be deleted.
 
 
 ## HTTP Server 
@@ -71,7 +59,7 @@ Use `sudo nano /etc/fstab` and add the entry:
 
 ### Set Cron Job for Resilience 
 
-The service is designed to stop when the number of consecutive images **with no detections** exceeds *UNDETECTED_MAX_SEQ* (by default 100).
+The service is designed to stop when the number of consecutive images **with no detections** exceeds *UNDETECTED_MAX_SEQ* (by default 10000).
 You either have to manually restart the service, or set a cron job as follows.
 
 Use `sudo crontab -e` and add the entry:
@@ -97,10 +85,10 @@ To install a new graph:
 
 2. Copy the frozen graph and labels file into the folder.
     *  The frozen graph must have the filename **frozen_inference_graph.pb**.
-    *  The labels file must have the name **object-detection.pbtxt**.
+    *  The labels file must have the name **category_map.js**.
     *  Determine the number of output categories in the graph.
 
-3. Modify **./cam/cam.properties** accordingly.
+3. Modify **./cam/service.properties** accordingly.
     *  The property GRAPH must refer to the graph directory.
     *  The property GRAPH_NUM_CLASSES must be the number of output categories in the graph.
 

@@ -1,12 +1,11 @@
 # pi-cam-object-detection-service
 
-The Pi Cam Object Detection Service is intended to run 24x7 on a Pi with a camera, 
+The Pi Cam Object Detection Service is intended to run continually on a Pi with a camera, 
 to survive restarts, 
-and to produce output suitable for ground truth harvesting, 
-i.e. detection files in PASCAL VOC XML, associated image files, and optionally, boxed image files.
+and to produce detection files in PASCAL VOC XML, associated image files, and optionally, boxed image files.
 
 The following animation demonstrates the key features.
-Typically the output would be cropped to the detection frame, but here it's shown raw to demonstrate detection frame tracking within the camera resolution.
+Typically the view would be cropped to the detection frame, but here it's shown raw to demonstrate detection frame tracking within the camera resolution.
 
 ![demo](eb_12_v08_480x270_01c_500k-20.gif)
 
@@ -32,7 +31,7 @@ See the readme file in **./kit** for further information.
 
 
 ## Please Note
-This kit has been tested on multiple **Pi 3 B+s** & **Pi 3 Bs**, with **Raspian Stretch Lite 2018-11-13** and **Camera Module V2**.
+This kit has been tested on multiple **Pi 3 B+s** & **Pi 3 Bs**, with **Raspian Stretch/Buster Lite** and **Camera Module V2**.
 
 This kit requires the download of an appropriate Pi Tensorflow wheel, see: https://github.com/lhelontra/tensorflow-on-arm/releases.
 

@@ -2,6 +2,7 @@
 
 
 """
+import numpy as np
 import json
 
 from os.path import join
@@ -9,6 +10,7 @@ from os.path import exists
 from os import makedirs
 
 from shutil import copyfile
+from copy import deepcopy
 
 from properties import Properties
 from util import log_message
@@ -30,14 +32,32 @@ def check_service():
     if 'SUSPENDED' in service and service['SUSPENDED'] == "1":
         raise ValueError( "Service was suspended!" )
     return service
+    
+"""
+    Assumes that a valid image is supplied
+"""
+def get_light_level( image ):
+    return int( np.average( np.asarray( image ) ) * 100 / 256 )
+"""
+    Assumes that a valid pijuice is supplied
+"""
+def get_charge_level( pijuice ):
+    if pijuice is not None:
+        charge_level = pijuice.status.GetChargeLevel()
+        return charge_level['data'] if 'data' in charge_level else 0
+    return -1    
 """
 
 
 """
-def read_config( log = False ):
+def read_config( log = False, more_config=None ):
     props = Properties()
     with open( "cam.properties", "r" ) as f:
         props.load( f )
+
+    if more_config is not None:
+        for k in more_config:
+            props[ k ] = more_config[ k ]
 
     config = {}
     
@@ -48,13 +68,19 @@ def read_config( log = False ):
     props.set_eval_or( config, 'CAMERA_RESOLUTION', [ 720, 405 ] )
     props.set_eval_or( config, 'CAMERA_ROTATION', 0 )
 
+    props.set_int_or( config, 'MIN_LIGHT_LEVEL', 10 )
+    props.set_int_or( config, 'MIN_CHARGE_START', 40 )
+    props.set_int_or( config, 'MIN_CHARGE_STOP', 30 )
+    
+
+
     # what TF graph
     props.set_text_or( config, 'GRAPH_SERVER' )
-    config['GRAPH'] = props[ 'GRAPH' ]
-    config['GRAPH_NUM_CLASSES'] = int( props[ 'GRAPH_NUM_CLASSES' ] )
+    props.set_text_or( config, 'GRAPH' )
+    props.set_int_or( config, 'GRAPH_NUM_CLASSES', 1 )
     
     props.set_text_or( config, 'GRAPH_FILENAME', 'frozen_inference_graph.pb' )
-    props.set_text_or( config, 'GRAPH_LABELS_FILENAME', 'object-detection.pbtxt' ) 
+    props.set_text_or( config, 'GRAPH_LABELS_FILENAME', 'category_map.js' ) 
 
     #
     props.set_eval_or( config, 'GRAPH_RESOLUTION' )
@@ -73,7 +99,7 @@ def read_config( log = False ):
     else:
         dw, dh = config['DETECTION_APERTURE']
         crw, crh = config['CAMERA_RESOLUTION']
-        dox, doy = ( crw - dw ) / 2, ( crh - dh ) / 2 
+        dox, doy = int( ( crw - dw ) / 2 ), int( ( crh - dh ) / 2 ) 
         config['DETECTION_FRAME'] = [ dox , doy, dox + dw, doy + dh ]
     
     

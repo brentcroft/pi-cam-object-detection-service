@@ -17,10 +17,18 @@ if [ "$pids" = "" ]; then
     if [ "$SUSPENDED" = "1" ]; then
         echo "$PREFIX suspended, not starting."
     else  
-        # maybe start the http-server (if HTTP_SERVER specified in service.properties)
-        if [ "$HTTP_SERVER" = "1" ]; then
-            echo "$PREFIX starting..."
-            python3 "./lib/http_server.py"
+        python3 "./lib/can_start.py"
+        CAN_START_RESULT=$?
+
+        if [ $CAN_START_RESULT -ne 0 ]; then
+            echo "${PREFIX} no go: ${CAN_START_RESULT}."
+        else    
+    
+            # maybe start the http-server (if HTTP_SERVER specified in service.properties)
+            if [ "$HTTP_SERVER" = "1" ]; then
+                echo "$PREFIX starting..."
+                python3 "./lib/http_server.py"
+            fi
         fi
     fi
 else
