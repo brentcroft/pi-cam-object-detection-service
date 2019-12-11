@@ -85,7 +85,14 @@ To install a new graph:
 
 2. Copy the frozen graph and labels file into the folder.
     *  The frozen graph must have the filename **frozen_inference_graph.pb**.
-    *  The labels file must have the name **category_map.js**.
+    *  The labels file must have the name **category_map.js**, of the following format:
+```
+{
+    "blackbird": 1, 
+    "blue tit": 2,
+    etc...    
+}
+```
     *  Determine the number of output categories in the graph.
 
 3. Modify **./cam/service.properties** accordingly.
