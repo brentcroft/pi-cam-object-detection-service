@@ -3,6 +3,12 @@ set -e
 
 sudo apt-get install -y dos2unix
 
+#
+sudo apt-get install -y --no-install-recommends \
+	libblas-dev liblapack-dev python3-dev \
+	libatlas-base-dev gfortran python3-setuptools
+
+
 sudo apt-get install -y python3-pil python3-lxml python3-tk
 sudo apt-get install -y python-opencv
 
