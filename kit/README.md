@@ -93,7 +93,6 @@ To install a new graph:
     etc...    
 }
 ```
-    *  Determine the number of output categories in the graph.
 
 3. Modify **./cam/service.properties** accordingly.
     *  The property GRAPH must refer to the graph directory.
