@@ -18,7 +18,7 @@ amend the file **01-build-tf-2.0.0-cp37.sh** correspondingly, since it has the f
 
 ## Install Tensorflow and dependencies
 
-Run `./01-build-tf-2.0.0-cp37.sh`
+Run `./01-build-tf.sh`
 
 This takes about 15-30 mins depending on network speed.
 
